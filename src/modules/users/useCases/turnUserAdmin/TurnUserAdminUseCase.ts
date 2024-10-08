@@ -16,7 +16,7 @@ class TurnUserAdminUseCase {
       throw new Error("User not found for the requested user id.");
     }
 
-    user.admin = true;
+    // user.admin = true;
     return this.usersRepository.turnAdmin(user);
   }
 }

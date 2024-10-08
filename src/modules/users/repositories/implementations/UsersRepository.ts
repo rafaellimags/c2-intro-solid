@@ -25,6 +25,7 @@ class UsersRepository implements IUsersRepository {
       name,
       email,
       created_at: new Date(),
+      updated_at: new Date(),
     });
     this.users.push(user);
     return user;
@@ -45,9 +46,9 @@ class UsersRepository implements IUsersRepository {
     const index: number = this.users.findIndex(
       (user) => user.id === receivedUser.id
     );
-    this.users[index] = receivedUser;
+    this.users[index].admin = true;
 
-    return receivedUser;
+    return this.users[index];
   }
 
   list(): User[] {
